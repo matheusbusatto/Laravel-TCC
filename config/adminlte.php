@@ -288,12 +288,25 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'text'        => 'Cadastro de Gastos',
+            'url'         => './controlPanel',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
             'label_color' => 'success',
+           
+            //far fa-fw fa-file
+            //<i class="fa-thin fa-piggy-bank"></i>
         ],
+
+        [
+            'text'        => 'Gastos',
+            'url'         => './spendingTable',
+            'icon'        => 'far fa-fw fa-file',
+            'label_color' => 'success',
+           
+            //far fa-fw fa-file
+            //<i class="fa-thin fa-piggy-bank"></i>
+        ],
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

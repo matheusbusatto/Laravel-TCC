@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;//stack over flow
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ Route::get('/test', function () {
 
 Route::get('/controlPanel', function () {
     return view('controlPanel');
+});
+
+Route::get('/spendingTable', function () {
+    return view('spendingTable');
 });
 
 Auth::routes();
