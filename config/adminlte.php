@@ -289,7 +289,7 @@ return [
         ],
         [
             'text'        => 'Cadastro de Gastos',
-            'url'         => './controlPanel',
+            'url'         => '/spending/create',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
            

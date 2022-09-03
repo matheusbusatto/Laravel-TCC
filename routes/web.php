@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Auth;//stack over flow
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\SpentController;
+
+Route::get('/', [SpentController::class, 'index']);
+Route::get('/spending/create', [SpentController::class, 'create']);
 
 Route::get('/test', function () {
     return view('test');
