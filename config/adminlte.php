@@ -289,7 +289,7 @@ return [
         ],
         [
             'text'        => 'Cadastro de Gastos',
-            'url'         => '/spending/create',
+            'url'         => '/expenses/create',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
            
@@ -299,7 +299,7 @@ return [
 
         [
             'text'        => 'Gastos',
-            'url'         => './spendingTable',
+            'url'         => './expenseTable',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
            

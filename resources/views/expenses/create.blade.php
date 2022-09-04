@@ -7,7 +7,10 @@
 @stop
 
 @section('content')
-<form class="form-horizontal">
+<form action="/expenses" method="POST" class="form-horizontal ">
+     <!-- sem @csrf o form não é enviado  -->
+    @csrf
+    
     <fieldset>
 
         <!-- Form Name -->
@@ -15,7 +18,7 @@
 
         <!-- Value input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="value">Valor</label>
+            <label class="col-md-6 control-label" for="value" id="value">Valor</label>
             <div class="col-md-4">
                 <input type="number" step="0.01" id="value" name="value" min="0.01" placeholder="" class="form-control input-md" required="">
 
@@ -24,7 +27,7 @@
 
         <!-- Date input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="date">Data</label>
+            <label class="col-md-6 control-label" id="date">Data</label>
             <div class="col-md-4">
                 <input id="date" name="date" type="date" placeholder="" class="form-control input-md">
 
@@ -32,9 +35,9 @@
         </div>
 
          <!-- Seletor de categoria-->
-        <div class="form-group">
-        <label class="row control-label" for="date">Categoria</label>
-            <select class="form-select" aria-label="Default select example">
+        <div class="form-group ">
+        <label class="row control-label col-md-6 control-label" id="type">Categoria</label>
+            <select class="form-select col-md-4" aria-label="select_type" for="type" id="type">
                 <option selected>Selecione a Categoria</option>
                 <option value="1">Alimentação</option>
                 <option value="2">Transporte</option>
@@ -46,9 +49,9 @@
 
         <!-- Message -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="message">Mensagem</label>
+            <label class="col-md-4 control-label" for="message" id="message">Mensagem</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="message" name="message"></textarea>
+                <textarea class="form-control" id="description" name="description"></textarea>
             </div>
         </div>
 
@@ -59,7 +62,7 @@
 
 
     </fieldset>
-</form>
+</form> 
 
 
 @stop

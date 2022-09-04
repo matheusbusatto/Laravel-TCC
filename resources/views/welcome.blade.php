@@ -8,7 +8,16 @@
 
 @section('content')
     <p>Welcome .</p>
+
+    @foreach($expenses as $expense)
+
+        <p>{{$expense->value}} -- {{$expense->description}} -- {{$expense->type}}</p>
+
+    @endforeach
+
 @stop
+
+
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
