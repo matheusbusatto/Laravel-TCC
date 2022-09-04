@@ -8,10 +8,17 @@ use App\Models\Expense;
 class ExpenseController extends Controller
 {
     public function index() {
-        //teste 
+        //Pega os dados do banco e imprime
         $expenses = Expense::all();
         return view('welcome', ['expenses' => $expenses]);
     }
+
+    public function table() {
+        //Pega os dados do banco e imprime
+        $expenses = Expense::all();
+        return view('expenseTable', ['expenses' => $expenses]);
+    }
+
 
     public function create() {
         return view('expenses.create');
@@ -24,14 +31,18 @@ class ExpenseController extends Controller
         $expense = new Expense;
         //preenche as propriedades recebidas pelo request
         $expense->value = $request->value;
+        $expense->date = $request->date;
         $expense->description = $request->description;
-       // $expense->type = $request->type;
+        $expense->id = $request->id;
+        $expense->created_at = $request->created_at;
+        //$expense->types = $request->types;
 
         //salva os dados no banco
         $expense->save();
 
         //redireciona o usuário
-        return redirect('/');
+        //with retorna mensagem para o usuário
+        return redirect('/')->with('msg', 'Gasto Adicionado com Sucesso');
 
     }
 }

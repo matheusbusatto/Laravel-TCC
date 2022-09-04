@@ -20,6 +20,9 @@ use App\Models\Expense;
 Route::get('/', [ExpenseController::class, 'index']);
 Route::get('/expenses/create', [ExpenseController::class, 'create']);
 
+
+Route::get('/expenseTable', [ExpenseController::class, 'table']);
+
 //rota de envio dos dados do fomulario de criação de despesas
 Route::post('/expenses', [ExpenseController::class, 'store']);
 
@@ -31,9 +34,7 @@ Route::get('/controlPanel', function () {
     return view('controlPanel');
 });
 
-Route::get('/expenseTable', function () {
-    return view('expenseTable');
-});
+
 
 Auth::routes();
 

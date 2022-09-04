@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->double('value', 8, 2);
             $table->text('description');
+            $table->dateTime('date');
            // $table->string('type', 50);
             $table->timestamps();
         });

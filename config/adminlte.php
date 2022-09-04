@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Finanças Pessoais',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -286,6 +286,15 @@ return [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
+        ],
+        [
+            'text'        => 'Home',
+            'url'         => '/',
+            'icon'        => 'far fa-fw fa-file',
+            'label_color' => 'success',
+           
+            //far fa-fw fa-file
+            //<i class="fa-thin fa-piggy-bank"></i>
         ],
         [
             'text'        => 'Cadastro de Gastos',

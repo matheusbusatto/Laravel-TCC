@@ -27,22 +27,23 @@
 
         <!-- Date input-->
         <div class="form-group">
-            <label class="col-md-6 control-label" id="date">Data</label>
+            <label class="col-md-6 control-label" for="date" id="date">Data</label>
             <div class="col-md-4">
-                <input id="date" name="date" type="date" placeholder="" class="form-control input-md">
+                <input id="date" name="date" type="date"  class="form-control input-md">
 
             </div>
         </div>
 
          <!-- Seletor de categoria-->
         <div class="form-group ">
-        <label class="row control-label col-md-6 control-label" id="type">Categoria</label>
-            <select class="form-select col-md-4" aria-label="select_type" for="type" id="type">
+        <label class="row control-label col-md-6 control-label">Categoria</label>
+            <select class="form-select col-md-4" id="types" name="types" form="typeform">
                 <option selected>Selecione a Categoria</option>
-                <option value="1">Alimentação</option>
-                <option value="2">Transporte</option>
-                <option value="3">Diversão</option>
-                <option value="4">Outro</option>
+                <option value="Alimentação">Alimentação</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Diversão">Diversão</option>
+                <option value="Casa">Casa</option>
+                <option value="Outro">Outro</option>
             </select>
         </div>
 
@@ -63,7 +64,6 @@
 
     </fieldset>
 </form> 
-
 
 @stop
 
