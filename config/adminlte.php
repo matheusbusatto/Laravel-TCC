@@ -229,7 +229,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -315,11 +315,20 @@ return [
             //far fa-fw fa-file
             //<i class="fa-thin fa-piggy-bank"></i>
         ],
-
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Login',
+            'url'  => 'login',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Registro',
+            'url'  => 'register',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

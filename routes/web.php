@@ -18,7 +18,7 @@ use App\Http\Controllers\ExpenseController;
 use App\Models\Expense;
 
 Route::get('/', [ExpenseController::class, 'index']);
-Route::get('/expenses/create', [ExpenseController::class, 'create']);
+Route::get('/expenses/create', [ExpenseController::class, 'create'])->middleware('auth');
 
 
 Route::get('/expenseTable', [ExpenseController::class, 'table']);

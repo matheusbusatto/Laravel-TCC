@@ -12,9 +12,11 @@
     @csrf
     
     <fieldset>
+        
 
         <!-- Form Name -->
-        <legend>Cadastro de Gastos</legend>
+        <legend class="bi bi-wallet">Cadastro de Gastos</legend>
+        
 
         <!-- Value input-->
         <div class="form-group">
@@ -69,10 +71,12 @@
 
 @section('css')
 <link rel="stylesheet" href="/css/admin_custom.css">
+
 @stop
 
 @section('js')
 <script>
     console.log('Hi!');
+    
 </script>
 @stop
