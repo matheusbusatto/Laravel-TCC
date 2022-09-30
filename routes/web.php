@@ -21,10 +21,17 @@ Route::get('/', [ExpenseController::class, 'index']);
 Route::get('/expenses/create', [ExpenseController::class, 'create'])->middleware('auth');
 
 
-Route::get('/expenseTable', [ExpenseController::class, 'table']);
+Route::get('/expenses/expenseTable', [ExpenseController::class, 'table']);
+
+//teste
+Route::get('/expenses/expensesTable/{id}', [ExpenseController::class, 'show']);
+//fimTeste
+
 
 //rota de envio dos dados do fomulario de criação de despesas
 Route::post('/expenses', [ExpenseController::class, 'store']);
+
+
 
 Route::get('/test', function () {
     return view('test');

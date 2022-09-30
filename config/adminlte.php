@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Finanças</b>Pessoais',
+    'logo_img' => 'vendor/adminlte/dist/img/logoFinancas-removebg.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -290,16 +290,17 @@ return [
         [
             'text'        => 'Home',
             'url'         => '/',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas  fa-home',
             'label_color' => 'success',
-           
+           //fa-solid fa-users
+           //fas  fa-users
             //far fa-fw fa-file
             //<i class="fa-thin fa-piggy-bank"></i>
         ],
         [
             'text'        => 'Cadastro de Gastos',
             'url'         => '/expenses/create',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-hand-holding-usd',
             'label_color' => 'success',
            
             //far fa-fw fa-file
@@ -308,8 +309,8 @@ return [
 
         [
             'text'        => 'Gastos',
-            'url'         => './expenseTable',
-            'icon'        => 'far fa-fw fa-file',
+            'url'         => '/expenses/expenseTable',
+            'icon'        => 'fas  fa-clipboard-list',
             'label_color' => 'success',
            
             //far fa-fw fa-file

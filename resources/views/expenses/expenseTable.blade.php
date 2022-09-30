@@ -16,7 +16,8 @@
       <th scope="col">Tipo</th>
       <th scope="col">Valor</th>
       <th scope="col">Data</th>
-      <th scope="col">Descrição</th>
+      <th scope="col">Descrição</th>  
+
     </tr>
  </thead>
 
@@ -30,6 +31,10 @@
       <td>{{$expense->value}}</td>
       <td>{{ date('d/m/Y' , strtotime($expense->date)) }}</td>
       <td>{{$expense->description}}</td>
+      <td><i class="fas fa-edit"></i></td>
+      <td><i class="fas fa-trash-alt"></i></td>
+
+      
     </tr>
   @endforeach
 

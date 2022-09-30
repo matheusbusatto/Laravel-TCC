@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Expense;
+use App\Models\User;
 
 class ExpenseController extends Controller
 {
@@ -13,12 +14,17 @@ class ExpenseController extends Controller
         return view('welcome', ['expenses' => $expenses]);
     }
 
+  
     public function table() {
         //Pega os dados do banco e imprime
         $expenses = Expense::all();
-        return view('expenseTable', ['expenses' => $expenses]);
-    }
+        
+        return view('expenses.expenseTable', ['expenses' => $expenses]);
 
+        //teste
+
+     
+    }
 
     public function create() {
         return view('expenses.create');
@@ -49,4 +55,6 @@ class ExpenseController extends Controller
         return redirect('/')->with('msg', 'Gasto Adicionado com Sucesso');
 
     }
+
+
 }
