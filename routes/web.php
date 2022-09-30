@@ -23,9 +23,7 @@ Route::get('/expenses/create', [ExpenseController::class, 'create'])->middleware
 
 Route::get('/expenses/expenseTable', [ExpenseController::class, 'table']);
 
-//teste
-Route::get('/expenses/expensesTable/{id}', [ExpenseController::class, 'show']);
-//fimTeste
+
 
 
 //rota de envio dos dados do fomulario de criação de despesas

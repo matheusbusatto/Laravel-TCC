@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Expense;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class ExpenseController extends Controller
 {
@@ -17,13 +19,16 @@ class ExpenseController extends Controller
   
     public function table() {
         //Pega os dados do banco e imprime
-        $expenses = Expense::all();
+       // $expenses = Expense::all(); //modo onde os usuários viam os gastos de todos
+
+
+       //usuário ve apenas o seu próprio gastos
+       $expenses = Expense::where('user_id', Auth::id())->get();
+
+       
         
-        return view('expenses.expenseTable', ['expenses' => $expenses]);
-
-        //teste
-
-     
+        return view('expenses.expenseTable', ['expenses' => $expenses]); 
+           
     }
 
     public function create() {
@@ -53,6 +58,21 @@ class ExpenseController extends Controller
         //redireciona o usuário
         //with retorna mensagem para o usuário
         return redirect('/')->with('msg', 'Gasto Adicionado com Sucesso');
+
+    }
+
+
+   
+    //identifica o id do usuário proprietário do gasto adicionado 
+    //NAO FUNCIONA 
+    public function show($id) {
+
+        $expense = Expense::findOrFail($id);
+
+        $expenseOwner = User::where('id', $expense->user_id)->first()->toArray();
+
+        return view('expenses.expenseTable', ['expense' => $expense, 'expenseOwner' => $expenseOwner]);
+
 
     }
 
