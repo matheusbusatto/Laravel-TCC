@@ -34,8 +34,7 @@
       <td><i class="fas fa-edit"></i></td>
       <td><i class="fas fa-trash-alt"></i></td>
       <td>{{$expense->user->id}}</td>
-      <td></td>
-
+      
       
     </tr>
   @endforeach

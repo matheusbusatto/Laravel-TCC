@@ -298,6 +298,13 @@ return [
             //<i class="fa-thin fa-piggy-bank"></i>
         ],
         [
+            'text'        => 'Cadastro de Receita',
+            'url'         => '/incomes/income',
+            'icon'        => 'fas fa-coins',
+            'label_color' => 'success',
+           
+        ],
+        [
             'text'        => 'Cadastro de Gastos',
             'url'         => '/expenses/create',
             'icon'        => 'fas fa-hand-holding-usd',

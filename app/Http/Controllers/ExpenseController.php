@@ -46,7 +46,7 @@ class ExpenseController extends Controller
         $expense->description = $request->description;
         $expense->id = $request->id;
         $expense->created_at = $request->created_at;
-        //$expense->types = $request->types;
+        $expense->types = $request->types;
 
         //acessando id do usuário logado
         $user = auth()->user();

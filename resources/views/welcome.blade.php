@@ -3,36 +3,41 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+<h1>Dashboard</h1>
 @stop
 
 @section('content')
-    <p>Welcome .</p>
+<p>Welcome .</p>
 
-    @foreach($expenses as $expense)
+@foreach($expenses as $expense)
 
-        <p>{{$expense->id}} -- {{$expense->value}} -- {{$expense->description}} -- {{$expense->type}}</p>
+<p>{{$expense->id}} -- {{$expense->value}} -- {{$expense->description}} -- {{$expense->type}}</p>
 
-    @endforeach
+
+@endforeach
+
+
 
 @stop
 
 <main>
-<!--Imprime a mensagem de confirmação-->
+    <!--Imprime a mensagem de confirmação-->
     <div class="container-fluid">
         @if(session('msg'))
         <div class="alert alert-success" role="alert">
-                <div class="msg">{{session('msg')}}</div>  
+            <div class="msg">{{session('msg')}}</div>
         </div>
         @endif
-        
+
     </div>
 </main>
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script>
+    console.log('Hi!');
+</script>
 @stop
