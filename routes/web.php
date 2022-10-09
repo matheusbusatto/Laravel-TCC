@@ -29,6 +29,9 @@ Route::get('/expenses/create', [ExpenseController::class, 'create'])->middleware
 //tabela de gastos
 Route::get('/expenses/expenseTable', [ExpenseController::class, 'table']);
 
+//tabela de receitas
+Route::get('/incomes/incomeTable', [IncomeController::class, 'table']);
+
 //exclusão de gastos
 
 

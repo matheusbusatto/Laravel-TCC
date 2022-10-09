@@ -325,7 +325,7 @@ return [
         ],
         [
             'text'        => 'Receitas',
-            'url'         => '/',
+            'url'         => '/incomes/incomeTable',
             'icon'        => 'fas  fa-clipboard-list',
             'label_color' => 'success',
            

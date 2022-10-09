@@ -19,6 +19,17 @@ class IncomeController extends Controller
     }
 
 
+    public function table()
+    {
+        //usuário ve apenas o seu próprio gastos
+        $incomes = Income::where('user_id', Auth::id())->get();
+
+
+
+        return view('incomes.incomeTable', ['incomes' => $incomes]);
+    }
+
+
     public function income()
     {
         //usuário ve apenas suas receitas
@@ -30,13 +41,15 @@ class IncomeController extends Controller
     }
 
 
-    public function create() {
+    public function create()
+    {
         return view('incomes.income');
     }
 
 
-       //função que recebe o post do formulário
-       public function store(Request $request) {
+    //função que recebe o post do formulário
+    public function store(Request $request)
+    {
 
         //cria objeto com os dados recebidos pelo request
         $income = new Income();
@@ -46,7 +59,7 @@ class IncomeController extends Controller
         $income->description = $request->description;
         $income->id = $request->id;
         $income->created_at = $request->created_at;
-        
+
 
         //acessando id do usuário logado
         $user = auth()->user();
@@ -58,6 +71,5 @@ class IncomeController extends Controller
         //redireciona o usuário
         //with retorna mensagem para o usuário
         return redirect('/incomes/income')->with('msg', 'Receita Adicionada com Sucesso');
-
     }
 }
