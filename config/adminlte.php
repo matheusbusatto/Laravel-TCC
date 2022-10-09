@@ -323,6 +323,15 @@ return [
             //far fa-fw fa-file
             //<i class="fa-thin fa-piggy-bank"></i>
         ],
+        [
+            'text'        => 'Receitas',
+            'url'         => '/',
+            'icon'        => 'fas  fa-clipboard-list',
+            'label_color' => 'success',
+           
+            //far fa-fw fa-file
+            //<i class="fa-thin fa-piggy-bank"></i>
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

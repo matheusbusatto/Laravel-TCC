@@ -49,8 +49,8 @@ class IncomeController extends Controller
         
 
         //acessando id do usuário logado
-       // $user = auth()->user();
-       // $income->user_id = $user->id;
+        $user = auth()->user();
+        $income->user_id = $user->id;
 
         //salva os dados no banco
         $income->save();
