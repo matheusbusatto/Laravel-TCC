@@ -20,5 +20,7 @@ class Expense extends Model
         'types' => 'array'
     ];
 
+    protected $guarded = [];
+
 
 }

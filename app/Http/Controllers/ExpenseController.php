@@ -61,6 +61,21 @@ class ExpenseController extends Controller
 
     }
 
+    public function destroy($id) {
+        Expense::findOrfail($id)->delete();
+        return redirect('/expenses/expenseTable');
+    }
+
+    public function edit($id) {
+        $expense = Expense::findOrFail($id);
+
+        return view('expenses.editExpenses', ['expense' => $expense]);
+    }
+
+    public function update(Request $request) {
+        Expense::findOrFail($request->id)->update($request->all());
+        return redirect('/expenses/expenseTable');
+    }
 
    
     //identifica o id do usuário proprietário do gasto adicionado 

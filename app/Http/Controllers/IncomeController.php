@@ -72,4 +72,22 @@ class IncomeController extends Controller
         //with retorna mensagem para o usuário
         return redirect('/incomes/income')->with('msg', 'Receita Adicionada com Sucesso');
     }
+
+    public function edit($id) {
+        $income = Income::findOrFail($id);
+
+        return view('incomes.editIncomes', ['income' =>  $income]);
+    }
+
+    public function destroy($id) {
+        Income::findOrfail($id)->delete();
+        return redirect('/incomes/incomeTable');
+    }
+
+    
+    public function update(Request $request) {
+        Income::findOrFail($request->id)->update($request->all());
+        return redirect('/incomes/incomeTable');
+    }
+
 }

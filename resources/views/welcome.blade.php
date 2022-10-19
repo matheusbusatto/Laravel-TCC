@@ -9,13 +9,14 @@
 @section('content')
 <p>Welcome .</p>
 
-@foreach($expenses as $expense)
 
-<p>{{$expense->id}} -- {{$expense->value}} -- {{$expense->description}} -- {{$expense->type}}</p>
+
+@foreach($incomes as $income)
+
+<p>{{$income->id}} -- {{$income->value}} -- {{$income->description}} --</p>
 
 
 @endforeach
-
 
 
 @stop

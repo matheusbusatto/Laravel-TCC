@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Auth;//stack over flow
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IncomeController;
 use App\Models\Expense;
+use App\Models\Income;
 
 Route::get('/', [ExpenseController::class, 'index']);
+Route::get('/', [IncomeController::class, 'index']);
 
 //criação de receitas
 Route::get('/incomes/income', [IncomeController::class, 'create'])->middleware('auth');
@@ -33,7 +35,22 @@ Route::get('/expenses/expenseTable', [ExpenseController::class, 'table']);
 Route::get('/incomes/incomeTable', [IncomeController::class, 'table']);
 
 //exclusão de gastos
+Route::delete('/expenses/{id}', [ExpenseController::class, 'destroy']);
 
+//exclusão de receitas
+Route::delete('/incomes/{id}', [IncomeController::class, 'destroy']);
+
+//edição de receitas
+Route::get('/incomes/edit/{id}', [IncomeController::class, 'edit']);
+
+//edição de gastos
+Route::get('/expenses/edit/{id}', [ExpenseController::class, 'edit']);
+
+//atualização de gastos
+Route::put('/expenses/update/{id}', [ExpenseController::class, 'update']);
+
+//atualização de receitas
+Route::put('/incomes/update/{id}', [ExpenseController::class, 'update']);
 
 
 
