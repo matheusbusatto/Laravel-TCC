@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Expense;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 
 class ExpenseController extends Controller
@@ -57,26 +60,36 @@ class ExpenseController extends Controller
 
         //redireciona o usuário
         //with retorna mensagem para o usuário
-        return redirect('/')->with('msg', 'Gasto Adicionado com Sucesso');
+        Alert::success('Sucesso', 'Gasto Adicionado');
+        return redirect('/');
 
     }
 
+    //exlusão de despesa
     public function destroy($id) {
         Expense::findOrfail($id)->delete();
+        Alert::success('Sucesso', 'Item Excluído');
         return redirect('/expenses/expenseTable');
     }
 
+    //edição de despesa
     public function edit($id) {
         $expense = Expense::findOrFail($id);
-
+        
         return view('expenses.editExpenses', ['expense' => $expense]);
     }
 
+    //update de despesa
     public function update(Request $request) {
         Expense::findOrFail($request->id)->update($request->all());
+        Alert::success('Sucesso', 'Item Editado');
         return redirect('/expenses/expenseTable');
     }
 
+    //soma dos campos
+   
+
+   
    
     //identifica o id do usuário proprietário do gasto adicionado 
     //NAO FUNCIONA 

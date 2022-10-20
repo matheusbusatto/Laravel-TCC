@@ -43,13 +43,11 @@
           <button type="submit" class="btn btn-danger delete-btn fas fa-trash-alt"> Deletar</button>
         </form>
       </td>
-      <td>{{$expense->user->id}}</td>
-
 
     </tr>
     @endforeach
 
-
+    @include('sweetalert::alert')
     @stop
 
     @section('css')

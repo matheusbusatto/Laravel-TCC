@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Income;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class IncomeController extends Controller
@@ -70,6 +71,7 @@ class IncomeController extends Controller
 
         //redireciona o usuário
         //with retorna mensagem para o usuário
+        Alert::success('Sucesso', 'Receita Adicionada');
         return redirect('/incomes/income')->with('msg', 'Receita Adicionada com Sucesso');
     }
 
@@ -81,12 +83,14 @@ class IncomeController extends Controller
 
     public function destroy($id) {
         Income::findOrfail($id)->delete();
+        Alert::success('Sucesso', 'Item Excluído');
         return redirect('/incomes/incomeTable');
     }
 
     
     public function update(Request $request) {
         Income::findOrFail($request->id)->update($request->all());
+        Alert::success('Sucesso', 'Item Editado');
         return redirect('/incomes/incomeTable');
     }
 

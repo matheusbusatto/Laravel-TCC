@@ -45,9 +45,6 @@
                     </form>
                 </td>
 
-                <td>{{$income->user->id}}</td>
-
-
             </tr>
             @endforeach
     </table>
@@ -62,7 +59,7 @@
 </div>
 
 
-
+@include('sweetalert::alert')
 @stop
 
 

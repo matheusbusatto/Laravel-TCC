@@ -50,7 +50,7 @@ Route::get('/expenses/edit/{id}', [ExpenseController::class, 'edit']);
 Route::put('/expenses/update/{id}', [ExpenseController::class, 'update']);
 
 //atualização de receitas
-Route::put('/incomes/update/{id}', [ExpenseController::class, 'update']);
+Route::put('/incomes/update/{id}', [IncomeController::class, 'update']);
 
 
 
@@ -76,4 +76,4 @@ Route::get('/controlPanel', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

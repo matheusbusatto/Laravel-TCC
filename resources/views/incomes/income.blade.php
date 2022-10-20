@@ -51,7 +51,7 @@
     </fieldset>
 </form>
 
-
+@include('sweetalert::alert')
 @stop
 
 @section('css')
