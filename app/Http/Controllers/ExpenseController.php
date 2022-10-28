@@ -28,13 +28,16 @@ class ExpenseController extends Controller
 
        //usuário ve apenas o seu próprio gastos
        $expenses = Expense::where('user_id', Auth::id())->get();
+       $userId = Auth::id();
 
-       $values = DB::table('expenses')->select('value')->get();
+       $values = DB::table('expenses')
+       ->whereIn('user_id', [$userId])
+       ->select('value')
+       ->get();
 
        $total_expenses = $values->sum('value');
 
-     
-        
+             
         return view('expenses.expenseTable', ['expenses' => $expenses, 'total_expenses' => $total_expenses]); 
            
     }
@@ -108,6 +111,9 @@ class ExpenseController extends Controller
 
 
     }
+
+
+    
 
 
 }

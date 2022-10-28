@@ -17,7 +17,9 @@
 
     <div class="d-flex ">
 
-        <h5>Total: {{$total_values}}</h3>
+        <h5>Total: {{$total_sum}}</h5>
+
+        <h5>Total: {{$totale_sum}}</h5>
 
     </div>
     

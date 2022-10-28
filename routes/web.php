@@ -62,6 +62,8 @@ Route::post('/expenses', [ExpenseController::class, 'store']);
 //rota de envio dos dados do fomulario de criação de receitas
 Route::post('/incomes', [IncomeController::class, 'store']);
 
+//teste
+Route::get('/incomes/teste', [IncomeController::class, 'sum']);
 
 
 

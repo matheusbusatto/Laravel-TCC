@@ -25,8 +25,12 @@ class IncomeController extends Controller
     {
         //usuário ve apenas suas receitas
         $incomes = Income::where('user_id', Auth::id())->get();
-       
-        $values = DB::table('incomes')->select('value')->get();
+        $userId = Auth::id();
+        
+        $values = DB::table('incomes')
+        ->whereIn('user_id', [$userId])
+        ->select('value')
+        ->get();
 
         $total_incomes = $values->sum('value');
 
@@ -105,6 +109,22 @@ class IncomeController extends Controller
         return redirect('/incomes/incomeTable');
     }
 
+
+    //teste
+    
+    public function sum () {
+
+        
+ 
+        $totais = DB::table('incomes')->select('value')->get();
+        $total_sum = $totais->sum('value');  
+
+        $totaise = DB::table('expenses')->select('value')->get();
+        $totale_sum = $totaise->sum('value');  
+
+        return view('incomes.teste', ['total_sum' => $total_sum ,'totale_sum' => $totale_sum ]); 
+           
+    }
     
     
 }
