@@ -64,6 +64,8 @@ Route::post('/incomes', [IncomeController::class, 'store']);
 
 
 
+
+
 Route::get('/test', function () {
     return view('test');
 });

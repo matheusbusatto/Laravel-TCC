@@ -47,6 +47,15 @@
     </tr>
     @endforeach
 
+</table>
+
+<div class="d-flex ">
+
+        <h5>Total: {{$total_expenses}}</h3>
+
+    </div>
+
+
     @include('sweetalert::alert')
     @stop
 

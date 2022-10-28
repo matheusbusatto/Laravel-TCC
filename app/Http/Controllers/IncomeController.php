@@ -7,6 +7,7 @@ use App\Models\Income;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
 
 
 class IncomeController extends Controller
@@ -22,12 +23,17 @@ class IncomeController extends Controller
 
     public function table()
     {
-        //usuário ve apenas o seu próprio gastos
+        //usuário ve apenas suas receitas
         $incomes = Income::where('user_id', Auth::id())->get();
+       
+        $values = DB::table('incomes')->select('value')->get();
 
+        $total_incomes = $values->sum('value');
 
-
-        return view('incomes.incomeTable', ['incomes' => $incomes]);
+       
+       return view('incomes.incomeTable', ['incomes' => $incomes, 'total_incomes' => $total_incomes]);
+       
+        
     }
 
 
@@ -36,6 +42,8 @@ class IncomeController extends Controller
         //usuário ve apenas suas receitas
         $incomes = Income::where('id', Auth::id())->get();
 
+        
+        
 
 
         return view('incomes.income', ['income' => $incomes]);
@@ -75,23 +83,28 @@ class IncomeController extends Controller
         return redirect('/incomes/income')->with('msg', 'Receita Adicionada com Sucesso');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $income = Income::findOrFail($id);
 
         return view('incomes.editIncomes', ['income' =>  $income]);
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         Income::findOrfail($id)->delete();
         Alert::success('Sucesso', 'Item Excluído');
         return redirect('/incomes/incomeTable');
     }
 
-    
-    public function update(Request $request) {
+
+    public function update(Request $request)
+    {
         Income::findOrFail($request->id)->update($request->all());
         Alert::success('Sucesso', 'Item Editado');
         return redirect('/incomes/incomeTable');
     }
 
+    
+    
 }

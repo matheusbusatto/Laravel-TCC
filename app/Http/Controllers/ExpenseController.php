@@ -7,6 +7,7 @@ use App\Models\Expense;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -28,9 +29,13 @@ class ExpenseController extends Controller
        //usuário ve apenas o seu próprio gastos
        $expenses = Expense::where('user_id', Auth::id())->get();
 
-       
+       $values = DB::table('expenses')->select('value')->get();
+
+       $total_expenses = $values->sum('value');
+
+     
         
-        return view('expenses.expenseTable', ['expenses' => $expenses]); 
+        return view('expenses.expenseTable', ['expenses' => $expenses, 'total_expenses' => $total_expenses]); 
            
     }
 
