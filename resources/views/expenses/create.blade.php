@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <form action="/expenses" method="POST" class="form-horizontal">
+    <form  action="/expenses" method="POST" class="form-horizontal">
         <!-- sem @csrf o form não é enviado  -->
         @csrf
 

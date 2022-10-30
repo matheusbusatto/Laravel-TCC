@@ -21,7 +21,7 @@ class ExpenseController extends Controller
     }
 
   
-    public function table() {
+    public function table(Request $request) {
         //Pega os dados do banco e imprime
        // $expenses = Expense::all(); //modo onde os usuários viam os gastos de todos
 
@@ -36,7 +36,6 @@ class ExpenseController extends Controller
        ->get();
 
        $total_expenses = $values->sum('value');
-
              
         return view('expenses.expenseTable', ['expenses' => $expenses, 'total_expenses' => $total_expenses]); 
            

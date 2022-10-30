@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Income;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
@@ -26,18 +27,17 @@ class IncomeController extends Controller
         //usuário ve apenas suas receitas
         $incomes = Income::where('user_id', Auth::id())->get();
         $userId = Auth::id();
-        
+
+        //soma dos valores
         $values = DB::table('incomes')
-        ->whereIn('user_id', [$userId])
-        ->select('value')
-        ->get();
+            ->whereIn('user_id', [$userId])
+            ->select('value')
+            ->get();
 
         $total_incomes = $values->sum('value');
 
-       
-       return view('incomes.incomeTable', ['incomes' => $incomes, 'total_incomes' => $total_incomes]);
-       
-        
+
+        return view('incomes.incomeTable', ['incomes' => $incomes, 'total_incomes' => $total_incomes]);
     }
 
 
@@ -46,8 +46,8 @@ class IncomeController extends Controller
         //usuário ve apenas suas receitas
         $incomes = Income::where('id', Auth::id())->get();
 
-        
-        
+
+
 
 
         return view('incomes.income', ['income' => $incomes]);
@@ -111,20 +111,47 @@ class IncomeController extends Controller
 
 
     //teste
-    
-    public function sum () {
 
-        
- 
+    public function sum()
+    {
+
+        $userId = Auth::id();
+
         $totais = DB::table('incomes')->select('value')->get();
-        $total_sum = $totais->sum('value');  
+        $total_sum = $totais->sum('value');
 
         $totaise = DB::table('expenses')->select('value')->get();
-        $totale_sum = $totaise->sum('value');  
+        $totale_sum = $totaise->sum('value');
 
-        return view('incomes.teste', ['total_sum' => $total_sum ,'totale_sum' => $totale_sum ]); 
-           
+        //teste filtro de datas
+
+        $date = request('date');
+
+        $incomes = DB::table('incomes')
+            ->whereIn('user_id', [$userId])
+            ->whereDate('date', $date)
+            ->get();
+            dd($incomes);
+        
+
+
+       
+        /** //FUNCIONA
+        $incomes = DB::table('incomes')
+            ->whereIn('user_id', [$userId])
+            ->whereMonth('date', '10')
+            ->get();
+        dd($incomes);
+         */
+
+
+
+
+
+
+
+
+
+        return view('incomes.teste', ['total_sum' => $total_sum, 'totale_sum' => $totale_sum, 'date' => $date]);
     }
-    
-    
 }

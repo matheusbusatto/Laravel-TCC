@@ -1,12 +1,18 @@
+
+
 @extends('adminlte::page')
 
 @section('title', 'Receitas')
 
 @section('content_header')
-<h1>Receitas</h1>
+<h1 class="teste">Receitas</h1>
+
+
 @stop
 
 @section('content')
+
+
 
 <div class="container-fluid">
     <table class="table">
@@ -72,6 +78,8 @@
 
 @section('css')
 <link rel="stylesheet" href="/css/admin_custom.css">
+
+
 @stop
 
 @section('js')

@@ -3,7 +3,9 @@
 @section('title', 'Gastos')
 
 @section('content_header')
-<h1>Gastos</h1>
+<h1 class="d-flex justify-content-center">Gastos</h1>
+
+
 @stop
 
 @section('content')

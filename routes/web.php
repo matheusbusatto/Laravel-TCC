@@ -64,7 +64,7 @@ Route::post('/incomes', [IncomeController::class, 'store']);
 
 //teste
 Route::get('/incomes/teste', [IncomeController::class, 'sum']);
-
+Route::post('/incomes/teste', [IncomeController::class, 'sum']);
 
 
 
