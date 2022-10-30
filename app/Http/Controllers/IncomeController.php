@@ -125,17 +125,18 @@ class IncomeController extends Controller
 
         //teste filtro de datas
 
-        $date = request('date');
-
+        $date = request('mes');
+        dd($date);
+        /**
         $incomes = DB::table('incomes')
             ->whereIn('user_id', [$userId])
-            ->whereDate('date', $date)
+            ->whereMonth('date', $date)
             ->get();
-            dd($incomes);
-        
+            //dd($incomes);
+         */
 
 
-       
+
         /** //FUNCIONA
         $incomes = DB::table('incomes')
             ->whereIn('user_id', [$userId])
