@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class IncomeController extends Controller
@@ -45,6 +46,7 @@ class IncomeController extends Controller
     {
         //usuário ve apenas suas receitas
         $incomes = Income::where('id', Auth::id())->get();
+       
 
 
 
@@ -125,17 +127,26 @@ class IncomeController extends Controller
 
         //teste filtro de datas
 
-        $date = request('mes');
-        dd($date);
-        /**
-        $incomes = DB::table('incomes')
+        
+        
+        $month = request('mes');
+        $incomes_month = DB::table('incomes')
             ->whereIn('user_id', [$userId])
-            ->whereMonth('date', $date)
+            ->whereMonth('date', $month)
             ->get();
-            //dd($incomes);
-         */
+           //dd($incomes_month);
 
+            $current = Carbon::now();
+         
+        $incomes = DB::table('incomes')
+        ->whereIn('user_id', [$userId])
+        ->select('date')
+        ->get();
+      // dd($incomes);
+       
+      
 
+   
 
         /** //FUNCIONA
         $incomes = DB::table('incomes')
@@ -153,6 +164,6 @@ class IncomeController extends Controller
 
 
 
-        return view('incomes.teste', ['total_sum' => $total_sum, 'totale_sum' => $totale_sum, 'date' => $date]);
+        return view('incomes.teste', ['total_sum' => $total_sum, 'totale_sum' => $totale_sum, 'month' => $month]);
     }
 }

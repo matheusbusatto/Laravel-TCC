@@ -29,7 +29,15 @@
   <tbody>
     <tr>
       <th scope="row">{{$expense->id}}</th>
-      <td>-</td>
+    @foreach($expense->types as $type)
+      <td>
+
+       {{$type}}
+
+       
+      </td>
+ @endforeach
+
       <td>{{$expense->value}}</td>
       <td>{{ date('d/m/Y' , strtotime($expense->date)) }}</td>
       <td>{{$expense->description}}</td>

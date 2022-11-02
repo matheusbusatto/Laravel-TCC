@@ -71,7 +71,7 @@
 
 <span>
 
-    <p>teste: {{$date}} </p>
+    <p>teste: {{$month}} </p>
 
 </span>
 
